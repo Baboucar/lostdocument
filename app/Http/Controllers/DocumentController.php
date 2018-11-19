@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use Illuminate\Http\Request;
+use DB;
 
 class DocumentController extends Controller
 {
@@ -15,6 +16,11 @@ class DocumentController extends Controller
     public function index()
     {
         //
+
+        $allFiles=  Document::all();
+
+
+        return view('pages.list')->with('document',$allFiles);
     }
 
     /**
@@ -61,9 +67,12 @@ class DocumentController extends Controller
      * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function show(Document $document)
+    public function show( $document)
     {
         //
+        $document = Document::find($document);
+
+        return view('pages.showindividualdocument') ->with('document',$document);
     }
 
     /**
@@ -98,5 +107,29 @@ class DocumentController extends Controller
     public function destroy(Document $document)
     {
         //
+
+    }
+
+    public function search(Request $request){
+        $output = "";
+        if($request->ajax()){
+            $documents = DB::table('documents')->where('serialNumber','LIKE', '%'.$request->search.'%')
+                                        ->orWhere('owner','LIKE','%'.$request->search.'%')->get();
+
+            if($documents){
+               foreach ($documents as $key => $doc) {
+                   $output.='<tr>'.
+                         '<td>.$doc->serialNumber.</td>'.
+                         '<td>.$doc->name.</td>'.
+                         '<td>.$doc->location.</td>'.
+
+                   '</tr>';
+               }
+            //    return Response($output);
+
+            }
+        }
+        return view('pages.search');
     }
 }
+

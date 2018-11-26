@@ -23,7 +23,7 @@ Route::get('allDocuments', 'DocumentController@index');
 Route::post('addDocument','DocumentController@store');
 // Route::get('search','DocumentController@search');
 
-Route::any('/search',function(){
+Route::any('/',function(){
     $q = Input::get('q');
   $doc = Document::where('serialNumber','LIKE','%'.$q.'%')->orWhere('name','LIKE','%'.$q.'%')->get();
     if(count($doc) > 0 )

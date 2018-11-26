@@ -110,6 +110,12 @@ class DocumentController extends Controller
 
     }
 
+    public function completeUpdate(Request $request, $task){
+        $task->status_id = $request->status_id;
+   
+
+
+    }
     public function search(Request $request){
         $output = "";
         if($request->ajax()){

@@ -99,8 +99,8 @@ class DocumentController extends Controller
         $documentUpdate = Document::find($id);
         $documentUpdate ->status= $request->get('status');
         $documentUpdate->save();
-        return redirect('/')->with('success','Status Updated !');
-        
+        return redirect('/search')->with('success','Status Updated !');
+
 
     }
 

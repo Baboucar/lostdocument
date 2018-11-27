@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-        @include('includes.nav')
+    
     @yield('content')
 
 

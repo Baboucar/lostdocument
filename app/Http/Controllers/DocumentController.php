@@ -93,9 +93,15 @@ class DocumentController extends Controller
      * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Document $document)
+    public function update(Request $request,  $id)
     {
         //
+        $documentUpdate = Document::find($id);
+        $documentUpdate ->status= $request->get('status');
+        $documentUpdate->save();
+        return redirect('/')->with('success','Status Updated !');
+        
+
     }
 
     /**
@@ -112,7 +118,7 @@ class DocumentController extends Controller
 
     public function completeUpdate(Request $request, $task){
         $task->status_id = $request->status_id;
-   
+
 
 
     }

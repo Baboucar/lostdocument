@@ -16,7 +16,7 @@
                 <th scope="col">Document Name</th>
                 <th scope="col">Location Found</th>
                 <th scope="col">Owner</th>
-                <th scope="col">Image</th>
+             
                 <th scope="col">Status</th>
 
             </tr>

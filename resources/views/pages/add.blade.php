@@ -2,11 +2,12 @@
 
 
 @section('content')
-   <h3 class="h3">Enter Document Details</h3>
+
 
 <div class="container">
+       <h3 class="h3 text-center mt-4">Enter Document Details</h3>
           @include('includes.message')
- <form action="{{route('file')}}" method="post"  enctype="multipart/form-data">
+ <form action="{{route('file')}}" method="post"  enctype="multipart/form-data" class="mt-5">
     {{csrf_field()}}
     <div  class="form-group">
         <input type="text" class="form-control"  placeholder="enter serial number" name="serialNumber" required>
@@ -28,4 +29,5 @@
     <button class="btn btn-success btn-lg btn-block" type="submit" name="button">Save</button>
  </form>
 </div>
+
 @endsection

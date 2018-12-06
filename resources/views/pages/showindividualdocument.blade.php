@@ -33,7 +33,11 @@
      <input type="text" value="{{0}}" name="status" hidden>
    <button type="submit" class="btn btn-secondary btn-lg btn-block mt-2">Not Returned</button>
 
+
  </form>
+  {{--  <button type="submit" class="btn btn-success btn-lg btn-block mt-2">Edit</button>  --}}
+  <a href="/document/{{$document->id}}/edit" class="btn btn-success btn-lg btn-block mt-2">Edit</a>
+
 </div>
 
 @endsection

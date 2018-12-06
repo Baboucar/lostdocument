@@ -40,3 +40,5 @@ Route::resource('document', 'DocumentController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/document/{id}/edit','DocumentController@updateDocument');

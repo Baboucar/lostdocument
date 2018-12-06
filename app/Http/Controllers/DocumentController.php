@@ -81,9 +81,11 @@ class DocumentController extends Controller
      * @param  \App\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function edit(Document $document)
+    public function edit( $id)
     {
         //
+        $document = Document::find($id);
+         return view('pages.updateDocument',compact('document','id'));
     }
 
     /**
@@ -104,6 +106,28 @@ class DocumentController extends Controller
 
     }
 
+    public function updateDocument(Request $request, $id){
+
+         $document->serialNumber=$request->get('serialNumber');
+
+        if ($request->hasFile('file')) {
+            $filename = $request->file->getClientOriginalName();
+            $filesize = $request->file->getClientSize();
+            $request->file->storeAs('public/upload', $filename);
+
+            $document = Document::find($id);
+            $document->serialNumber = $request->get('serialNumber');
+            $document->name = $request->get('name');
+            $document->location = $request->get('location');
+            $document->owner = $request->get('owner');
+            $document->image = $filename;
+            $document->size = $filesize;
+
+            $document->save();
+            return redirect('/addDocument')->with('success', 'Information Updated !');
+
+    }
+}
     /**
      * Remove the specified resource from storage.
      *

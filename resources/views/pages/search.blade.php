@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
  @include('includes.nav')
+  @include('includes.message')
 <form action="/search" method="POST"  >
       {{csrf_field()}}
       <div class="input-group">

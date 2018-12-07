@@ -110,7 +110,7 @@ class DocumentController extends Controller
 
          $document->serialNumber=$request->get('serialNumber');
 
-        if ($request->hasFile('file')) {
+
             $filename = $request->file->getClientOriginalName();
             $filesize = $request->file->getClientSize();
             $request->file->storeAs('public/upload', $filename);
@@ -122,11 +122,12 @@ class DocumentController extends Controller
             $document->owner = $request->get('owner');
             $document->image = $filename;
             $document->size = $filesize;
+            $document->status = $request->get('status');
 
             $document->save();
             return redirect('/addDocument')->with('success', 'Information Updated !');
 
-    }
+
 }
     /**
      * Remove the specified resource from storage.
@@ -146,26 +147,26 @@ class DocumentController extends Controller
 
 
     }
-    public function search(Request $request){
-        $output = "";
-        if($request->ajax()){
-            $documents = DB::table('documents')->where('serialNumber','LIKE', '%'.$request->search.'%')
-                                        ->orWhere('owner','LIKE','%'.$request->search.'%')->get();
+    // public function search(Request $request){
+    //     $output = "";
+    //     if($request->ajax()){
+    //         $documents = DB::table('documents')->where('serialNumber','LIKE', '%'.$request->search.'%')
+    //                                     ->orWhere('owner','LIKE','%'.$request->search.'%')->get();
 
-            if($documents){
-               foreach ($documents as $key => $doc) {
-                   $output.='<tr>'.
-                         '<td>.$doc->serialNumber.</td>'.
-                         '<td>.$doc->name.</td>'.
-                         '<td>.$doc->location.</td>'.
+    //         if($documents){
+    //            foreach ($documents as $key => $doc) {
+    //                $output.='<tr>'.
+    //                      '<td>.$doc->serialNumber.</td>'.
+    //                      '<td>.$doc->name.</td>'.
+    //                      '<td>.$doc->location.</td>'.
 
-                   '</tr>';
-               }
-            //    return Response($output);
+    //                '</tr>';
+    //            }
+    //         //    return Response($output);
 
-            }
-        }
-        return view('pages.search');
-    }
+    //         }
+    //     }
+    //     return view('pages.search');
+    // }
 }
 

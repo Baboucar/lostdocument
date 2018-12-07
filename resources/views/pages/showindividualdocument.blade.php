@@ -6,6 +6,7 @@
 
 @section('content')
  <div class="container">
+     @include('includes.nav')
   <h2 class="h2 mt-3">Item Details</h2>
 
      <ul class="list-group mt-5">

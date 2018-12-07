@@ -12,9 +12,10 @@
  */
 use App\Document;
 use Illuminate\Support\Facades\Input;
+
 Route::get('/', function () {
-     return view('auth.login');
- });
+    return view('auth.login');
+});
 
 
 Route::get('addDocument', 'DocumentController@create')->name('file');
@@ -41,4 +42,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/document/{id}/edit','DocumentController@updateDocument');
+ Route::post('/documents/{id}', 'DocumentController@updateDocument');

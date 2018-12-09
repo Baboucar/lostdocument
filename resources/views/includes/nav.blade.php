@@ -14,11 +14,11 @@
 
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">Add Card</a>
+               <a class="nav-link" href="/addCard">Add Card</a>
             </li>
 
          <li>
-                   <a class="nav-link" href="#">Add Devices</a>
+                   <a class="nav-link" href="/addDevice">Add Devices</a>
          </li>
             {{--  <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 
 Route::get('addDocument', 'DocumentController@create')->name('file');
+Route::get('addCard','CardController@create')->name('addCard');
+Route::get('addDevice','DeviceController@create')->name('addDevice');
+
 
 Route::get('allDocuments', 'DocumentController@index');
 Route::post('addDocument', 'DocumentController@store');

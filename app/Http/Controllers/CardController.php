@@ -37,6 +37,11 @@ class CardController extends Controller
     public function store(Request $request)
     {
         //
+        $card = new Card;
+        $card->serialNumber= $request->serialNumber;
+        $card->owner=$request->cardOwner;
+        $card->type=$request->cardtype;
+
     }
 
     /**

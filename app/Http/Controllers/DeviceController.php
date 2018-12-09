@@ -42,6 +42,9 @@ class DeviceController extends Controller
         $device->name = $request->name;
         $device->type= $request->type;
         $device->model= $reques->model;
+        $device->save();
+        return redirect('/addDocument')-with('success','Saved!');
+        
     }
 
     /**

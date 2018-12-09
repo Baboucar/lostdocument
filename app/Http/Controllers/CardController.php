@@ -36,11 +36,14 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $card = new Card;
         $card->serialNumber= $request->serialNumber;
-        $card->owner=$request->cardOwner;
+        $card->owner=$request->cardowner;
         $card->type=$request->cardtype;
+        $card->save();
+        return redirect('/search')->with('success','Saved !');
+
 
     }
 

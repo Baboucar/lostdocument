@@ -23,8 +23,9 @@ Route::get('addCard','CardController@create')->name('addCard');
 Route::get('addDevice','DeviceController@create')->name('addDevice');
 
 
-Route::get('allDocuments', 'DocumentController@index');
+// Route::get('allDocuments', 'DocumentController@index');
 Route::post('addDocument', 'DocumentController@store');
+Route::post('addCard','CardController@store');
 // Route::get('search','DocumentController@search');
 
 Route::any('/search', function () {
@@ -40,7 +41,7 @@ Route::any('/search', function () {
 
 Route::get('document/{id}', 'DocumentController@show');
 Route::resource('document', 'DocumentController');
-
+ Route::resource('card', 'CardController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

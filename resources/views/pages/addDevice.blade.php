@@ -3,8 +3,9 @@
  @include('includes.nav')
      <div class="container">
 <h3 class="h3 text-center mt-4">Enter Device  Details</h3>
-     <form action="{{route('addDevice')}}">
-
+     <form action="{{route('addDevice')}}" method="POST">
+   {{csrf_field()}}
+   <div  class="form-group ">
 <div  class="form-group ">
         <input type="text" class="form-control"  placeholder="enter serial number" name="serialNumber" required>
 </div>

@@ -57,7 +57,7 @@ class DocumentController extends Controller
             $document->size = $filesize;
 
             $document->save();
-            return redirect('/addDocument')->with('success','Information Saved !');
+            return redirect('/search')->with('success','Information Saved !');
         }
     }
 

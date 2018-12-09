@@ -5,12 +5,13 @@
  <div class="container">
 
        <h3 class="h3 text-center mt-4">Enter Card Details Details</h3>
-       <form action="{{route('addCard')}}" class="mt-5">
+       <form action="{{route('addCard')}}"  method="POST" class="mt-5">
+           {{csrf_field()}}
    <div  class="form-group ">
         <input type="text" class="form-control"  placeholder="enter serial number" name="serialNumber" required>
     </div>
      <div  class="form-group">
-        <input type="text" class="form-control"  placeholder="enter owner" name="cardOwer" required>
+        <input type="text" class="form-control"  placeholder="enter owner" name="cardowner" required>
     </div>
 
          <div  class="form-group">

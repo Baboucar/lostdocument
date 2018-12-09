@@ -26,6 +26,7 @@ Route::get('addDevice','DeviceController@create')->name('addDevice');
 // Route::get('allDocuments', 'DocumentController@index');
 Route::post('addDocument', 'DocumentController@store');
 Route::post('addCard','CardController@store');
+Route::post('addDevice','DeviceController@store');
 // Route::get('search','DocumentController@search');
 
 Route::any('/search', function () {

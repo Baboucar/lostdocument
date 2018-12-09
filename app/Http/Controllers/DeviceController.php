@@ -41,10 +41,10 @@ class DeviceController extends Controller
         $device ->serialNumber = $request->serialNumber;
         $device->name = $request->name;
         $device->type= $request->type;
-        $device->model= $reques->model;
+        $device->model= $request->model;
         $device->save();
-        return redirect('/addDocument')-with('success','Saved!');
-        
+        return redirect('/addDocument')->with('success','Saved!');
+
     }
 
     /**

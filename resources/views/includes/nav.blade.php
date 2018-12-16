@@ -16,6 +16,9 @@
             <li class="nav-item">
                <a class="nav-link" href="/addCard">Add Card</a>
             </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/viewitems">ViewItems</a>
+            </li>
 
          <li>
                    <a class="nav-link" href="/addDevice">Add Devices</a>

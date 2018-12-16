@@ -13,6 +13,8 @@ class DocumentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         //
@@ -104,6 +106,10 @@ class DocumentController extends Controller
         return redirect('/search')->with('success','Status Updated !');
 
 
+    }
+
+    public function viewItems(Document $document){
+        return view('pages.viewitems');
     }
 
     public function updateDocument(Request $request, $id){

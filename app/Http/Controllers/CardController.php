@@ -14,6 +14,10 @@ class CardController extends Controller
      */
     public function index()
     {
+        $allFiles = Card::all();
+
+
+        return view('search.list')->with('document', $allFiles);
         //
     }
 
@@ -36,15 +40,20 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-
+        if ($request->hasFile('file')) {
+            $filename = $request->file->getClientOriginalName();
+            $filesize = $request->file->getClientSize();
+            $request->file->storeAs('public/upload', $filename);
         $card = new Card;
         $card->serialNumber= $request->serialNumber;
         $card->owner=$request->cardowner;
         $card->type=$request->cardtype;
+        $card->image = $filename;
+        $card->size = $filesize;
         $card->save();
         return redirect('/search')->with('success','Saved !');
 
-
+        }
     }
 
     /**

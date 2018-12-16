@@ -37,14 +37,21 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         //
+        if ($request->hasFile('file')) {
+            $filename = $request->file->getClientOriginalName();
+            $filesize = $request->file->getClientSize();
+            $request->file->storeAs('public/upload', $filename);
         $device = new Device;
         $device ->serialNumber = $request->serialNumber;
         $device->name = $request->name;
         $device->type= $request->type;
         $device->model= $request->model;
+            $device->image = $filename;
+            $device->size = $filesize;
         $device->save();
         return redirect('/addDocument')->with('success','Saved!');
 
+        }
     }
 
     /**

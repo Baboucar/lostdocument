@@ -18,6 +18,9 @@ class CreateCardsTable extends Migration
             $table->string('serialNumber');
             $table->string('owner');
             $table->string('type');
+            $table->string('image');
+            $table->string('size');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

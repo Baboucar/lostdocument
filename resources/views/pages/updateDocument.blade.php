@@ -25,7 +25,7 @@
     <input type="file" name="file"  class="form-control-file" >
    </div>
    <div class="form-group">
-    <input type="text" class="form-control" value="{{$document->status}}" placeholder="enter owner"  name="status" >
+    <input type="text" class="form-control" value="{{$document->status}}" placeholder="enter owner"  name="status" hidden>
    </div>
 
     <button class="btn btn-success btn-lg btn-block" type="submit" name="button">Save</button>

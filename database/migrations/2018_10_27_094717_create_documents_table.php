@@ -21,7 +21,7 @@ class CreateDocumentsTable extends Migration
             $table->string('owner');
             $table->string('image');
             $table->string('size');
-            $table->tinyInteger('status')->default(0);;
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

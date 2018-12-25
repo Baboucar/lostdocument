@@ -17,7 +17,7 @@ class CardController extends Controller
         $allFiles = Card::all();
 
 
-        return view('search.list')->with('document', $allFiles);
+        return view('pages.searchCard')->with('document', $allFiles);
         //
     }
 

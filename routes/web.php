@@ -12,6 +12,7 @@
  */
 use App\Document;
 use App\Device;
+use App\Card;
 use Illuminate\Support\Facades\Input;
 
 Route::get('/', function () {
@@ -52,6 +53,17 @@ Route::any('/searchDevice',function(){
 
     else
         return view('pages.searchDevices')->withMessage('No Records Found');
+});
+
+
+Route::any('/searchCard', function () {
+    $q = Input::get('q');
+    $device = Card::where('serialNumber', 'LIKE', '%' . $q . '%')->orWhere('type', 'LIKE', '%' . $q . '%')->get();
+    if (count($device) > 0)
+        return view('pages.searchCard')->withDetails($device)->withQuery($q);
+
+    else
+        return view('pages.searchCard')->withMessage('No Records Found');
 });
 
 Route::get('document/{id}', 'DocumentController@show')->middleware('auth');

@@ -6,7 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="/search">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/viewitems">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/addDocument">Add Document</a>
@@ -16,9 +16,9 @@
             <li class="nav-item">
                <a class="nav-link" href="/addCard">Add Card</a>
             </li>
-            <li class="nav-item">
+            {{--  <li class="nav-item">
                <a class="nav-link" href="/viewitems">ViewItems</a>
-            </li>
+            </li>  --}}
 
          <li>
                    <a class="nav-link" href="/addDevice">Add Devices</a>

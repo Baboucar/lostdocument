@@ -15,6 +15,12 @@ class DeviceController extends Controller
     public function index()
     {
         //
+     $device =  Device::all();
+
+    return view('pages.searchDevices')->with('de',$device);
+
+
+
     }
 
     /**

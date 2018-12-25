@@ -11,6 +11,7 @@
 |
  */
 use App\Document;
+use App\Device;
 use Illuminate\Support\Facades\Input;
 
 Route::get('/', function () {
@@ -32,7 +33,8 @@ Route::post('addDevice','DeviceController@store')->middleware('auth');
 
 Route::any('/search', function () {
     $q = Input::get('q');
-    $doc = Document::where('serialNumber', 'LIKE', '%' . $q . '%')->orWhere('name', 'LIKE', '%' . $q . '%')->get();
+    $doc = Document::where('serialNumber', 'LIKE', '%' . $q . '%')->
+    orWhere('name', 'LIKE', '%' . $q . '%')->get();
     if (count($doc) > 0)
         return view('pages.search')->withDetails($doc)->withQuery($q);
 
@@ -40,6 +42,17 @@ Route::any('/search', function () {
         return view('pages.search')->withMessage('No Records Found');
 
 })->middleware('auth');
+
+Route::any('/searchDevice',function(){
+    $q = Input::get('q');
+    $device = Device::where('serialNumber', 'LIKE', '%'.$q.'%' )->
+    orWhere('type','LIKE', '%'.$q.'%')->get();
+    if (count($device) > 0)
+        return view('pages.searchDevices')->withDetails($device)->withQuery($q);
+
+    else
+        return view('pages.searchDevices')->withMessage('No Records Found');
+});
 
 Route::get('document/{id}', 'DocumentController@show')->middleware('auth');
 Route::resource('document', 'DocumentController')->middleware('auth');

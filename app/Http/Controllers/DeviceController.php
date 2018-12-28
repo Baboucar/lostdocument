@@ -66,9 +66,12 @@ class DeviceController extends Controller
      * @param  \App\Device  $device
      * @return \Illuminate\Http\Response
      */
-    public function show(Device $device)
+    public function show( $device)
     {
         //
+        $device = Device::find($device);
+
+        return view('pages.showindividualdevice')->with('device', $device);
     }
 
     /**

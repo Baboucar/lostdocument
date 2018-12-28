@@ -31,7 +31,8 @@
                 <tbody>
 @foreach ($details as $device )
    <tr>
-     <td>{{$device->serialNumber}}</td>
+        <td><a href="/device/{{$device->id}}">{{$device->serialNumber}}</a></td>
+     {{-- <td>{{$device->serialNumber}}</td> --}}
 <td>{{$device->type}}</td>
   <td>{{$device->name}}</td>
     <td>{{$device->model}}</td>

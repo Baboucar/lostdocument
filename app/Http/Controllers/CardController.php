@@ -62,9 +62,12 @@ class CardController extends Controller
      * @param  \App\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function show(Card $card)
+    public function show( $card)
     {
         //
+        $card = Card::find($card);
+
+        return view('pages.showindividualcard')->with('card', $card);
     }
 
     /**

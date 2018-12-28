@@ -24,11 +24,12 @@ Route::get('/', function () {
 Route::get('addDocument', 'DocumentController@create')->name('file')->middleware('auth');
 Route::get('addCard','CardController@create')->name('addCard')->middleware('auth');
 Route::get('addDevice','DeviceController@create')->name('addDevice')->middleware('auth');
-
+Route::get('device/{id}', 'DeviceController@show');
 
 // Route::get('allDocuments', 'DocumentController@index');
 Route::post('addDocument', 'DocumentController@store')->middleware('auth');
 Route::post('addCard','CardController@store')->middleware('auth');
+Route::get('card/{id}','CardController@show');
 Route::post('addDevice','DeviceController@store')->middleware('auth');
 // Route::get('search','DocumentController@search');
 
@@ -67,6 +68,7 @@ Route::any('/searchCard', function () {
 });
 
 Route::get('document/{id}', 'DocumentController@show')->middleware('auth');
+
 Route::resource('document', 'DocumentController')->middleware('auth');
  Route::resource('card', 'CardController')->middleware('auth');
 Auth::routes();
@@ -74,4 +76,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
  Route::post('/documents/{id}', 'DocumentController@updateDocument')->middleware('auth');
+
 Route::get('/viewitems', 'DocumentController@viewItems');

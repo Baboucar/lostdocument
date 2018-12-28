@@ -32,7 +32,8 @@
           <tbody>
               @foreach ($details as $li )
               <tr>
-                  <td>  {{$li->serialNumber}}</td>
+
+                   <td><a href="/card/{{$li->id}}">{{$li->serialNumber}}</a></td>
                   <td>{{$li->owner}}</td>
                   <td>{{$li->type}}</td>
                 @if($li->status == 0)

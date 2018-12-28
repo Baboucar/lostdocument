@@ -74,7 +74,7 @@ class DocumentController extends Controller
         //
         $document = Document::find($document);
 
-        return view('pages.showindividualdocument') ->with('document',$document);
+        return view('pages.showindividualdevice') ->with('document',$document);
     }
 
     /**

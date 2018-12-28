@@ -51,7 +51,7 @@ class CardController extends Controller
         $card->image = $filename;
         $card->size = $filesize;
         $card->save();
-        return redirect('/search')->with('success','Saved !');
+        return redirect('/searchCard')->with('success','Saved !');
 
         }
     }

@@ -55,7 +55,7 @@ class DeviceController extends Controller
             $device->image = $filename;
             $device->size = $filesize;
         $device->save();
-        return redirect('/addDocument')->with('success','Saved!');
+        return redirect('/searchDevice')->with('success','Saved!');
 
         }
     }

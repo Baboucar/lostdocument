@@ -7,9 +7,9 @@
 
      <ul class="list-group mt-5">
          <li class="list-group-item"> <span class="font-weight-bold">Serial Number: </span>  {{$device->serialNumber}}</li>
-         <li class="list-group-item"> <span class="font-weight-bold">Document Type: </span> {{$device->name}}</li>
-          <li class="list-group-item"> <span class="font-weight-bold"> Location Found: </span> {{$device->type}}</li>
-           <li class="list-group-item"> <span class="font-weight-bold"> Owner: </span> {{$device->model}}</li>
+         <li class="list-group-item"> <span class="font-weight-bold">Device Name: </span> {{$device->name}}</li>
+          <li class="list-group-item"> <span class="font-weight-bold"> Device Type: </span> {{$device->type}}</li>
+           <li class="list-group-item"> <span class="font-weight-bold"> Model: </span> {{$device->model}}</li>
 
 
 
